@@ -36,6 +36,8 @@ const SignUpPage = () => {
         >
           Sign up
         </Button>
+        <p>Or: </p>
+        <GoogleButton text="Sign up"/>
       </div>
     </div>
   )

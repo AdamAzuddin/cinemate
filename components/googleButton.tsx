@@ -1,14 +1,21 @@
-import { Button } from '@mui/material';
+import { Button, ButtonProps } from '@mui/material';
 
-const GoogleButton = () => {
+interface GoogleButtonProps extends ButtonProps {
+  text: string
+}
+
+
+const GoogleButton = (props: GoogleButtonProps) => {
+
   return (
     <Button
+    {...props}
       variant="contained"
       color="primary"
       disableRipple
-      className="text-black"
+      className="text-black bg-white hover:bg-gray-100"
     >
-      Sign in with Google
+      {props.text} with Google
     </Button>
   );
 };

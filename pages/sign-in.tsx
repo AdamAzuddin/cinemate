@@ -25,12 +25,12 @@ const SignInPage = () => {
         <Button
           variant="contained"
           color="primary"
-          className="text-black bg-blue-500 hover:bg-blue-600"
+          className="text-white bg-blue-500 hover:bg-blue-600"
         >
           Sign in
         </Button>
         <p>Or:</p>
-        <GoogleButton />
+        <GoogleButton text="Sign in"/>
       </div>
     </div>
   );
