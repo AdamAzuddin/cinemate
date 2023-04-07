@@ -16,9 +16,9 @@ const SignInPage = () => {
         <h1 className="text-lg font-bold">Welcome back to Cinemate!</h1>
         <h2 className="align-middle">Please sign in to continue</h2>
         <TextField
-          label="Username"
+          label="Email"
           variant="filled"
-          id="username"
+          id="email"
           type="text"
           autoComplete="off"
         />
