@@ -3,6 +3,8 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import type { Session } from "next-auth";
 import Layout from "@/components/Layout";
+import {signOut} from "next-auth/react";
+import { Button } from "@mui/material";
 
 export default function Home() {
   const { data, status } = useSession();
@@ -38,6 +40,11 @@ type UserProps = {
 };
 
 function User({ session }: UserProps) {
+
+  const handleSignOut = async() =>{
+    await signOut()
+  }
+
   return (
     <main className="container mx-auto text-center py-20">
       <h3 className="text-white text-4xl">Authorized user homepage</h3>
@@ -51,6 +58,7 @@ function User({ session }: UserProps) {
           <a className="text-white">Profile Page</a>
         </Link>
       </div>
+      <Button onClick={handleSignOut}>Sign out</Button>
     </main>
   );
 }
