@@ -37,13 +37,14 @@ const OverlayMenu = (props: any) => {
   const [active, setActive] = props.activeState
   return (
     <>
-      <ul style={{ listStyleType: "none" }}>
+      <ul style={{ listStyleType: "none" }} className="bg-zinc-900">
           {data.map((item, i) => (
             <li key={i} style={{padding: "4vh 0", borderBottom: "0.5px solid black"}}>
               <Link
                 href={item.Link}
                 onClick={() => setActive(false)}
                 style={{paddingLeft:"15px" }}
+                className="text-white"
               >
                 {item.name}
               </Link>
