@@ -16,6 +16,13 @@ const SignUpPage = () => {
           autoComplete="off"
         />
         <TextField
+          label="Email"
+          variant="filled"
+          id="email"
+          type="text"
+          autoComplete="off"
+        />
+        <TextField
           label="Password"
           variant="filled"
           id="password"
