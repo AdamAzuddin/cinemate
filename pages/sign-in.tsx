@@ -1,8 +1,15 @@
 import React from "react";
 import { TextField, Button } from "@mui/material";
 import GoogleButton from "@/components/googleButton";
+import {signIn, signOut} from 'next-auth/react';
 
 const SignInPage = () => {
+
+  // Google Handler function
+
+  async function handleGoogleSignIn(){
+    signIn('google', {callbackUrl: "http://localhost:3000"})
+  }
   return (
     <div className="flex flex-row justify-center items-center h-screen bg-zinc-900">
       <div className="h-120 p-6 bg-white rounded-lg shadow-lg grid grid-rows-3 gap-1 justify-center items-center">
@@ -30,7 +37,7 @@ const SignInPage = () => {
           Sign in
         </Button>
         <p>Or:</p>
-        <GoogleButton text="Sign in"/>
+        <GoogleButton text="Sign in" onClick={handleGoogleSignIn}/>
       </div>
     </div>
   );
