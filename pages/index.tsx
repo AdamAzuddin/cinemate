@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import type { Session } from "next-auth";
 import Layout from "@/components/Layout";
-import {signOut} from "next-auth/react";
+import { signOut } from "next-auth/react";
 import { Button } from "@mui/material";
 
 export default function Home() {
@@ -40,10 +40,9 @@ type UserProps = {
 };
 
 function User({ session }: UserProps) {
-
-  const handleSignOut = async() =>{
-    await signOut()
-  }
+  const handleSignOut = async () => {
+    await signOut();
+  };
 
   return (
     <main className="container mx-auto text-center py-20">
@@ -58,7 +57,9 @@ function User({ session }: UserProps) {
           <a className="text-white">Profile Page</a>
         </Link>
       </div>
-      <Button onClick={handleSignOut}>Sign out</Button>
+      <Button onClick={handleSignOut} variant="contained">
+        Sign out
+      </Button>
     </main>
   );
 }
