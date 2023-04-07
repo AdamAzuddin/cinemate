@@ -5,24 +5,14 @@ import type { Session } from "next-auth";
 
 export default function Home() {
   const { data, status } = useSession();
-  if (status === "authenticated") {
-    return (
-      <>
-        <Header />
-        <main>
-          <User session={data} />
-        </main>
-      </>
-    );
-  } else
-    return (
-      <>
-        <Header />
-        <main>
-          <Guest />
-        </main>
-      </>
-    );
+  return (
+    <>
+      <Header showAuthButton={status === "authenticated" ? false : true} />
+      <main>
+        {status === "authenticated" ? <User session={data} /> : <Guest />}
+      </main>
+    </>
+  );
 }
 
 //Guest
@@ -51,8 +41,7 @@ function User({ session }: UserProps) {
       <h3 className="text-white text-4xl">Authorized user homepage</h3>
       <div className="details">
         <h5>{session?.user?.name}</h5>
-        <h5>Unknown</h5>
-        <h5>Unknown</h5>
+        <h5>{session?.user?.email}</h5>
       </div>
 
       <div className="justify-center flex bg-blue-500">

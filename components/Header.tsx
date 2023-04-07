@@ -11,12 +11,16 @@
  import Button from "@mui/material/Button";
  import { useRouter } from "next/navigation";
  
- const Header = () => {
+ type HeaderProps = {
+   showAuthButton: boolean
+ }
+ 
+ const Header = ({ showAuthButton }: HeaderProps) => {
    const [active, setActive] = useState(false);
    // set an empty div element
    const menuRef = useRef<HTMLDivElement>(null);
  
-   const router = useRouter()
+   const router = useRouter();
  
    useEffect(() => {
      const handleOutsideClick = (event: any) => {
@@ -76,18 +80,26 @@
              <SearchBar />
            </div>
  
-           <div style={{margin:"5px"}}>
-             <Button variant="contained" onClick={()=> router.push
-             ('/../pages/LogIn')} >
-               Log in
-             </Button>
-           </div>
-           <div style={{margin:"5px"}}>
-             <Button variant="outlined" onClick={()=> router.push
-             ('/../pages/SignUp')} >
-               Sign up
-             </Button>
-           </div>
+           {showAuthButton && (
+             <div>
+               <div style={{ margin: "5px" }}>
+                 <Button
+                   variant="contained"
+                   onClick={() => router.push("/../pages/LogIn")}
+                 >
+                   Log in
+                 </Button>
+               </div>
+               <div style={{ margin: "5px" }}>
+                 <Button
+                   variant="outlined"
+                   onClick={() => router.push("/../pages/SignUp")}
+                 >
+                   Sign up
+                 </Button>
+               </div>
+             </div>
+           )}
          </div>
        </div>
        <div
@@ -100,7 +112,7 @@
            // animation
            transform: active ? "translateX(0%)" : "translateX(-100%)",
            transition: "all 0.5s ease-in-out",
-           zIndex: '1000'
+           zIndex: "1000",
          }}
        >
          <OverlayMenu activeState={[active, setActive]} />
