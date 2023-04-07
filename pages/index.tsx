@@ -2,15 +2,17 @@ import Header from "@/components/Header";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import type { Session } from "next-auth";
+import Layout from "@/components/Layout";
 
 export default function Home() {
   const { data, status } = useSession();
   return (
     <>
-      <Header showAuthButton={status === "authenticated" ? false : true} />
-      <main>
-        {status === "authenticated" ? <User session={data} /> : <Guest />}
-      </main>
+      <Layout>
+        <main>
+          {status === "authenticated" ? <User session={data} /> : <Guest />}
+        </main>
+      </Layout>
     </>
   );
 }
