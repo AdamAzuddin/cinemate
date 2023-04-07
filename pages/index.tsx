@@ -1,22 +1,24 @@
+import Header from "@/components/Header";
 import Link from "next/link";
 import { useState } from "react";
 
-
 export default function Home() {
-
-  const [session, setSession] = useState(true)
+  const [session, setSession] = useState(true);
 
   return (
-    <div>
-      <main className="container mx-auto text-center py-20">
-        <h1 className="text-white">Cinemate</h1>
-        {session? <User/> : <Guest />}
-      </main>
-    </div>
+    <>
+      <div>
+        <Header />
+        <main className="container mx-auto text-center py-20">
+          <h1 className="text-white">Cinemate</h1>
+          {session ? <User /> : <Guest />}
+        </main>
+      </div>
+    </>
   );
 }
 
-//Guest 
+//Guest
 function Guest() {
   return (
     <main className="container mx-auto text-center py-20">
