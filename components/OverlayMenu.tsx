@@ -34,23 +34,27 @@ const data = [
 
 const OverlayMenu = (props: any) => {
   // accept useState as prop
-  const [active, setActive] = props.activeState
+  const [active, setActive] = props.activeState;
   return (
     <>
-      <ul style={{ listStyleType: "none" }} className="bg-zinc-900">
-          {data.map((item, i) => (
-            <li key={i} style={{padding: "4vh 0", borderBottom: "0.5px solid black"}}>
-              <Link
-                href={item.Link}
-                onClick={() => setActive(false)}
-                style={{paddingLeft:"15px" }}
-                className="text-white"
-              >
-                {item.name}
-              </Link>
-            </li>
-          ))}
-        </ul>    </>
+      <ul style={{ listStyleType: "none" }} className="bg-zinc-900 h-full">
+        {data.map((item, i) => (
+          <li
+            key={i}
+            style={{ padding: "4vh 0", borderBottom: "0.5px solid black" }}
+          >
+            <Link
+              href={item.Link}
+              onClick={() => setActive(false)}
+              style={{ paddingLeft: "15px" }}
+              className="text-white text-xl"
+            >
+              {item.name}
+            </Link>
+          </li>
+        ))}
+      </ul>{" "}
+    </>
   );
 };
 
