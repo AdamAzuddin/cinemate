@@ -2,7 +2,8 @@ import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import prismadb from "../../../lib/prismadb";
-import { compare } from "bcrypt";
+import bcrypt from "bcrypt";
+
 
 export const authOptions = {
   providers: [
@@ -34,7 +35,7 @@ export const authOptions = {
           throw new Error("User does not exist");
         }
 
-        const isCorrectPassword = await compare(
+        const isCorrectPassword = await bcrypt.compare(
           credentials.password,
           user.hashedPassword
         );

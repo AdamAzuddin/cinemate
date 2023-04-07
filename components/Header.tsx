@@ -39,7 +39,7 @@
    }, [menuRef]);
  
    useEffect(() => {
-     // body is not scrollable wj=hen menu is in
+     // body is not scrollable when menu is in
      // active state
      document.body.style.overflow = active ? "hidden" : "auto";
    }, [active]);
@@ -85,7 +85,7 @@
                <div style={{ margin: "5px" }}>
                  <Button
                    variant="contained"
-                   onClick={() => router.push("/../pages/LogIn")}
+                   onClick={() => router.push("/sign-in")}
                  >
                    Log in
                  </Button>
@@ -93,7 +93,7 @@
                <div style={{ margin: "5px" }}>
                  <Button
                    variant="outlined"
-                   onClick={() => router.push("/../pages/SignUp")}
+                   onClick={() => router.push("/sign-up")}
                  >
                    Sign up
                  </Button>
