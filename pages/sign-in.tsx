@@ -2,8 +2,11 @@ import React, { useCallback, useState } from "react";
 import { TextField, Button } from "@mui/material";
 import GoogleButton from "@/components/googleButton";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const SignInPage = () => {
+
+  const router = useRouter()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -19,11 +22,15 @@ const SignInPage = () => {
       await signIn("credentials", {
         email,
         password,
+        redirect: false,
+        callbackUrl: '/'
       });
+
+      router.push('/')
     } catch (error) {
       console.log(error);
     }
-  }, [email, password]);
+  }, [email, password, router]);
   return (
     <div className="flex flex-row justify-center items-center h-screen bg-zinc-900">
       <div className="h-120 p-6 bg-white rounded-lg shadow-lg grid grid-rows-3 gap-1 justify-center items-center">
