@@ -9,18 +9,26 @@ const SignUpPage = () => {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   const register = useCallback(async () => {
     try {
+      if (password !== confirmPassword) {
+        throw new Error("Passwords do not match");
+      }
+
       await axios.post('/api/register', {
         email,
         username,
-        password
-      })
-    } catch (error){
-      console.log(error)
+        password,
+      });
+    } catch (error) {
+      console.log(error);
     }
-  }, [email, username, password])
+  }, [email, username, password, confirmPassword]);
+
+  
+
   return (
     <div className="flex flex-row justify-center items-center h-screen bg-zinc-900">
       <div className="h-120 p-6 bg-white rounded-lg shadow-lg grid grid-rows-3 gap-1 justify-center items-center">
@@ -32,6 +40,9 @@ const SignUpPage = () => {
           id="username"
           type="text"
           autoComplete="off"
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setUsername(event.target.value)
+          }
         />
         <TextField
           label="Email"
@@ -39,6 +50,9 @@ const SignUpPage = () => {
           id="email"
           type="text"
           autoComplete="off"
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setEmail(event.target.value)
+          }
         />
         <TextField
           label="Password"
@@ -46,6 +60,9 @@ const SignUpPage = () => {
           id="password"
           type="password"
           autoComplete="off"
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setPassword(event.target.value)
+          }
         />
         <TextField
           label="Confirm Password"
@@ -53,6 +70,9 @@ const SignUpPage = () => {
           id="password"
           type="password"
           autoComplete="off"
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setConfirmPassword(event.target.value)
+          }
         />
         <Button
           variant="contained"
