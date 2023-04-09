@@ -7,7 +7,7 @@ import axios from 'axios';
 const SignUpPage = () => {
 
   const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
+  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
@@ -19,13 +19,13 @@ const SignUpPage = () => {
 
       await axios.post('/api/register', {
         email,
-        username,
+        name,
         password,
       });
     } catch (error) {
       console.log(error);
     }
-  }, [email, username, password, confirmPassword]);
+  }, [email, name, password, confirmPassword]);
 
   
 
@@ -37,11 +37,11 @@ const SignUpPage = () => {
         <TextField
           label="Username"
           variant="filled"
-          id="username"
+          id="name"
           type="text"
           autoComplete="off"
           onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-            setUsername(event.target.value)
+            setName(event.target.value)
           }
         />
         <TextField
