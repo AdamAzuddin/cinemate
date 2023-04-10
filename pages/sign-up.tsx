@@ -13,6 +13,8 @@ const SignUpPage = () => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [errorLength, setErrorLength] = useState(false)
+  const [errorMatch, setErrorMatch] = useState(false)
 
   const router = useRouter()
 
@@ -31,19 +33,27 @@ const SignUpPage = () => {
     }
   }, [email, password, router]);
 
-  const register = useCallback(async () => {
+  const register = useCallback(async (e: { preventDefault: () => void; }) => {
+    e.preventDefault()
+    setErrorLength(false)
+    setErrorMatch(false)
+    
     try {
-      if (password !== confirmPassword) {
-        throw new Error("Passwords do not match");
+      if (password.length < 6) {
+        setErrorLength(true);
+      } else if (password !== confirmPassword) {
+        setErrorMatch(true);
+      } else {
+        await axios.post('/api/register', {
+          email,
+          name,
+          password,
+        });
+    
+        login();
       }
 
-      await axios.post('/api/register', {
-        email,
-        name,
-        password,
-      });
-
-      login()
+      
     } catch (error) {
       console.log(error);
     }
@@ -84,7 +94,10 @@ const SignUpPage = () => {
           autoComplete="off"
           onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
             setPassword(event.target.value)
+            
           }
+          error={errorLength}
+          helperText={errorLength? 'Password must be at least 6 characters or longer': ""}
         />
         <TextField
           label="Confirm Password"
@@ -95,6 +108,8 @@ const SignUpPage = () => {
           onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
             setConfirmPassword(event.target.value)
           }
+          error={errorMatch}
+          helperText={errorMatch? 'Passwords do not match': ''}
         />
         <Button
           variant="contained"
