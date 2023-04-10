@@ -3,6 +3,9 @@ import { useCallback, useState } from 'react';
 import { TextField, Button } from "@mui/material";
 import GoogleButton from "@/components/googleButton";
 import axios from 'axios';
+import { useRouter } from "next/router";
+import { signIn } from "next-auth/react";
+
 
 const SignUpPage = () => {
 
@@ -10,6 +13,23 @@ const SignUpPage = () => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+
+  const router = useRouter()
+
+  const login = useCallback(async () => {
+    try {
+      await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+        callbackUrl: '/'
+      });
+
+      router.push('/')
+    } catch (error) {
+      console.log(error);
+    }
+  }, [email, password, router]);
 
   const register = useCallback(async () => {
     try {
@@ -22,10 +42,12 @@ const SignUpPage = () => {
         name,
         password,
       });
+
+      login()
     } catch (error) {
       console.log(error);
     }
-  }, [email, name, password, confirmPassword]);
+  }, [email, name, password, confirmPassword, login]);
 
   
 
