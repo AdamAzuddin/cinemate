@@ -9,6 +9,7 @@ const SignInPage = () => {
   const router = useRouter()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false)
 
   // Google Handler function
 
@@ -18,15 +19,23 @@ const SignInPage = () => {
 
   // Credentials sign in
   const login = useCallback(async () => {
+    setError(false)
     try {
-      await signIn("credentials", {
+      const res = await signIn("credentials", {
         email,
         password,
         redirect: false,
         callbackUrl: '/'
       });
 
-      router.push('/')
+      if (res?.status==401){
+        setError(true)
+      }
+      else{
+        router.push('/')
+      }
+
+      
     } catch (error) {
       console.log(error);
     }
@@ -55,6 +64,8 @@ const SignInPage = () => {
           onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
             setPassword(event.target.value)
           }
+          error={error}
+          helperText={error? 'Incorrect email or password': ''}
         />
         <Button
           variant="contained"
