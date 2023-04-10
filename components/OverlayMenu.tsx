@@ -4,31 +4,31 @@ import Link from "next/link";
 const data = [
   {
     name: "My Account",
-    Link: "../pages/MyProfile",
+    Link: "/my-profile",
   },
   {
     name: "Genre",
-    Link: "/../pages/Genre",
+    Link: "/genre",
   },
   {
     name: "Movies",
-    Link: "/../pages/Movies",
+    Link: "/movies",
   },
   {
     name: "Series",
-    Link: "/../pages/Series",
+    Link: "/series",
   },
   {
     name: "My List",
-    Link: "/../pages/MyList",
+    Link: "/my-list",
   },
   {
     name: "About",
-    Link: "/../pages/About",
+    Link: "/about",
   },
   {
     name: "Log Out",
-    Link: "/../pages/SignIn",
+    Link: "/sign-in",
   },
 ];
 
