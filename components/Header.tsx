@@ -10,7 +10,7 @@ import { IoMdMenu } from "react-icons/io";
 import OverlayMenu from "./OverlayMenu";
 import Button from "@mui/material/Button";
 import { useRouter } from "next/navigation";
-import {FaBell} from 'react-icons/fa'
+import { FaBell } from "react-icons/fa";
 
 type HeaderProps = {
   showAuthButton: boolean;
@@ -61,31 +61,23 @@ const Header = ({ showAuthButton }: HeaderProps) => {
           background: "#0B253F",
         }}
       >
-        <div
-          style={{
-            padding: "20px 40px",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          {!active && (
-            <IoMdMenu
-              size={32}
-              style={{ color: "#FFFFFF" }}
-              onClick={handleMenuClick}
-            />
-          )}
-
-          <div style={{ marginLeft: "auto", marginRight: "auto" }}>
+        <div className="px-4 sm:px-6 md:px-8 py-4 flex justify-between items-center">
+          {" "}
+          <div className="">
+            {!active && (
+              <IoMdMenu
+                size={32}
+                className="text-white text-2xl md:text-3xl lg:text-4xl"
+                onClick={handleMenuClick}
+              />
+            )}
+          </div>
+          <div>
             <SearchBar />
           </div>
-
-          <div className="px-5">
+          <div className="px-5 ">
             <FaBell size={24} color="white" />
           </div>
-
-          
         </div>
       </div>
       <div

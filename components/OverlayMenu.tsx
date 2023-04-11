@@ -40,7 +40,7 @@ const OverlayMenu = (props: any) => {
 
   return (
     <>
-      <ul style={{ listStyleType: "none" }} className="bg-zinc-900 h-full">
+      <ul style={{ listStyleType: "none" }} className="bg-zinc-900 h-full sm:text-sm md:text-base">
         <li className="py-2 border-b border-solid border-black">
           <div className="flex flex-col items-center">
             <Link href='/my-profile'>
@@ -64,7 +64,7 @@ const OverlayMenu = (props: any) => {
               href={item.Link}
               onClick={() => setActive(false)}
               style={{ paddingLeft: "15px" }}
-              className="text-white text-xl"
+              className="text-white"
             >
               {item.name}
             </Link>
