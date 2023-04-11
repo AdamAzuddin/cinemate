@@ -70,7 +70,7 @@ const OverlayMenu = (props: any) => {
             </Link>
           </li>
         ))}
-      </ul>{" "}
+      </ul>
     </>
   );
 };
