@@ -10,6 +10,7 @@ import { IoMdMenu } from "react-icons/io";
 import OverlayMenu from "./OverlayMenu";
 import Button from "@mui/material/Button";
 import { useRouter } from "next/navigation";
+import {FaBell} from 'react-icons/fa'
 
 type HeaderProps = {
   showAuthButton: boolean;
@@ -80,26 +81,11 @@ const Header = ({ showAuthButton }: HeaderProps) => {
             <SearchBar />
           </div>
 
-          {showAuthButton && (
-            <div>
-              <div style={{ margin: "5px" }}>
-                <Button
-                  variant="contained"
-                  onClick={() => router.push("/sign-in")}
-                >
-                  Log in
-                </Button>
-              </div>
-              <div style={{ margin: "5px" }}>
-                <Button
-                  variant="outlined"
-                  onClick={() => router.push("/sign-up")}
-                >
-                  Sign up
-                </Button>
-              </div>
-            </div>
-          )}
+          <div className="px-5">
+            <FaBell size={24} color="white" />
+          </div>
+
+          
         </div>
       </div>
       <div
