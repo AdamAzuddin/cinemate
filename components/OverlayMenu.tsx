@@ -4,10 +4,6 @@ import { useSession } from "next-auth/react";
 
 const content = [
   {
-    name: "My Account",
-    Link: "/my-profile",
-  },
-  {
     name: "Genre",
     Link: "/genre",
   },
@@ -41,22 +37,24 @@ const OverlayMenu = (props: any) => {
   return (
     <>
       <ul style={{ listStyleType: "none" }} className="bg-zinc-900 h-full">
-        <li>
+        <li className="py-4 border-b border-solid border-black">
           <div className="flex flex-col items-center">
-            <img
-              src={data?.user?.image as string}
-              className="w-24 h-24 rounded-full"
-              alt="My Image"
-              width={500}
-              height={500}
-            />
-            <p className="text-white">{data?.user?.name}</p>
+            <Link href='/my-profile'>
+                <img
+                  src={data?.user?.image as string}
+                  className="w-24 h-24 rounded-full m-2"
+                  alt="My Image"
+                  width={500}
+                  height={500}
+                />
+                <p className="text-white">{data?.user?.name}</p>
+            </Link>
           </div>
         </li>
         {content.map((item, i) => (
           <li
             key={i}
-            style={{ padding: "4vh 0", borderBottom: "0.5px solid black" }}
+            className="py-4 border-b border-solid border-black"
           >
             <Link
               href={item.Link}
