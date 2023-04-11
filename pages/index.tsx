@@ -56,32 +56,3 @@ export default function Home() {
   );
 }
 
-//User
-type UserProps = {
-  session: Session | null;
-};
-
-function User({ session }: UserProps) {
-  const handleSignOut = async () => {
-    await signOut();
-  };
-
-  return (
-    <main className="container mx-auto text-center py-20">
-      <h3 className="text-white text-4xl">Authorized user homepage</h3>
-      <div className="details">
-        <h5>{session?.user?.name}</h5>
-        <h5>{session?.user?.email}</h5>
-      </div>
-
-      <div className="justify-center flex bg-blue-500">
-        <Link href="/profile" legacyBehavior>
-          <a className="text-white">Profile Page</a>
-        </Link>
-      </div>
-      <Button onClick={handleSignOut} variant="contained">
-        Sign out
-      </Button>
-    </main>
-  );
-}
