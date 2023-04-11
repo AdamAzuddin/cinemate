@@ -24,8 +24,8 @@ const content = [
     Link: "/about",
   },
   {
-    name: "Log Out",
-    Link: "/sign-in",
+    name: "Social",
+    Link: "/social",
   },
 ];
 
