@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
-const data = [
+const content = [
   {
     name: "My Account",
     Link: "/my-profile",
@@ -35,10 +36,24 @@ const data = [
 const OverlayMenu = (props: any) => {
   // accept useState as prop
   const [active, setActive] = props.activeState;
+  const { data } = useSession();
+
   return (
     <>
       <ul style={{ listStyleType: "none" }} className="bg-zinc-900 h-full">
-        {data.map((item, i) => (
+        <li>
+          <div className="flex flex-col items-center">
+            <img
+              src={data?.user?.image as string}
+              className="w-24 h-24 rounded-full"
+              alt="My Image"
+              width={500}
+              height={500}
+            />
+            <p className="text-white">{data?.user?.name}</p>
+          </div>
+        </li>
+        {content.map((item, i) => (
           <li
             key={i}
             style={{ padding: "4vh 0", borderBottom: "0.5px solid black" }}

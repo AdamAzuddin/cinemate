@@ -1,10 +1,8 @@
 import Link from "next/link";
-import type { Session } from "next-auth";
 import Layout from "@/components/Layout";
 import { signOut, getSession, useSession } from "next-auth/react";
 import { Button } from "@mui/material";
 import { NextPageContext } from "next";
-import useCurrentUser from "@/hooks/useCurrentUser";
 
 // if not signed in, cannot view home page
 export async function getServerSideProps(context: NextPageContext) {
