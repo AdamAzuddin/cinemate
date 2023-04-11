@@ -64,7 +64,7 @@ const OverlayMenu = (props: any) => {
               href={item.Link}
               onClick={() => setActive(false)}
               style={{ paddingLeft: "15px" }}
-              className="text-white text-l"
+              className="text-white text-xl"
             >
               {item.name}
             </Link>
