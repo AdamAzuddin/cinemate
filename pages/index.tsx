@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import {getSession, useSession } from "next-auth/react";
 import { NextPageContext } from "next";
-import Movies from "@/components/HorizontalMovieScroll";
+import Movies from "@/components/Movies";
 
 // if not signed in, cannot view home page
 export async function getServerSideProps(context: NextPageContext) {
