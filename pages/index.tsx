@@ -2,6 +2,8 @@ import Layout from "@/components/Layout";
 import {getSession, useSession } from "next-auth/react";
 import { NextPageContext } from "next";
 import Movies from "@/components/Movies";
+import Banner from "@/components/Banner";
+import useApi from "@/hooks/useApi";
 
 // if not signed in, cannot view home page
 export async function getServerSideProps(context: NextPageContext) {
@@ -23,16 +25,16 @@ export async function getServerSideProps(context: NextPageContext) {
 }
 
 export default function Home() {
-  const { data} = useSession();
+  const data = useApi('/search/title?title=batman&country=us&show_type=movie&output_language=en')
+  console.log(data)
+
 
   
   return (
     <>
       <Layout>
-        <main className="container mx-auto  py-20 overflow-x-scroll">
-          <h3 className="text-white text-4xl text-center">Home Page</h3>
-          <Movies title="Trending"/>
-          <Movies title="Fresh release"/>
+        <main className="container mx-auto  py-20">
+          <Banner/>
         </main>
       </Layout>
     </>
