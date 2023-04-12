@@ -1,8 +1,7 @@
-import Link from "next/link";
 import Layout from "@/components/Layout";
-import { signOut, getSession, useSession } from "next-auth/react";
-import { Button } from "@mui/material";
+import {getSession, useSession } from "next-auth/react";
 import { NextPageContext } from "next";
+import Movies from "@/components/HorizontalMovieScroll";
 
 // if not signed in, cannot view home page
 export async function getServerSideProps(context: NextPageContext) {
@@ -30,8 +29,10 @@ export default function Home() {
   return (
     <>
       <Layout>
-        <main className="container mx-auto text-center py-20">
-          <h3 className="text-white text-4xl">Home Page</h3>
+        <main className="container mx-auto  py-20 overflow-x-scroll">
+          <h3 className="text-white text-4xl text-center">Home Page</h3>
+          <Movies title="Trending"/>
+          <Movies title="Fresh release"/>
         </main>
       </Layout>
     </>
