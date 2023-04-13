@@ -18,23 +18,27 @@ export const Header: FC<Props> = memo(function Header(props = {}) {
     <>
       <div className={classes.poster}></div>
       <div className={classes.bG}></div>
-      <div className={classes.search2}>
+      <div className="flex justify-center items-center ">
         <Search
-          className={classes.search}
           swap={{
             icon: <SearchIcon className={classes.icon} />,
           }}
         />
-      </div>
-      <div className={classes.menu}>
-        <div className={`${classes.menu2} rounded-full bg-blue-500 flex items-center justify-center w-20 h-20`}>
-          <IoMdMenu
-            size={35}
-            className="text-white text-2xl md:text-3xl lg:text-4xl"
-          />
+        <div className="mt-7">
+          <div className="absolute top-22 right-0 mr-3vh flex items-center gap-27 ">
+            <div className="menu2 rounded-full bg-blue-500 flex items-center justify-center w-12 h-12">
+              <IoMdMenu
+                size={35}
+                className="text-white text-2xl md:text-3xl lg:text-4xl"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="absolute  left-0 mr-3vh ">
+          <Logo className={classes.logo} classes={{ tv: classes.tv }} />
         </div>
       </div>
-      <Logo className={classes.logo} classes={{ tv: classes.tv }} />
+
       <div className={classes.descriptionBox}>
         <div className={classes.johnWick3Parabellum}>
           John Wick 3 : Parabellum
