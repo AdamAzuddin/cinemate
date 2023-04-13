@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import Header from './Header';
+import {Header} from './Header/Header';
 import { useSession } from 'next-auth/react';
 
 type Props = {
@@ -18,7 +18,7 @@ const Layout = ({ children, title = 'Default Title' }: Props) => {
 
   return (
     <>
-      <Header showAuthButton={showAuthButton} />
+      <Header />
       <main>{children}</main>
     </>
   );
