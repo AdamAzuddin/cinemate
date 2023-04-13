@@ -6,25 +6,24 @@
     width: 3vh;
     height: 3vh;
   }
-  .menuAlt4.menuAlt4 {
-    left: 16.6667%;
-    right: 16.6666%;
-    top: 16.6667%;
-    bottom: 16.6667%;
-    width: 24px;
-    height: 24px;
-  }
   .icon2 {
     width: 3vh;
     height: 3vh;
   }
-  .logo.logo {
+  .logo {
     position: absolute;
-    left: 95px;
     top: 15px;
+    left: 0;
+    margin-left: 5vh;
+    margin-top: 10px;
   }
-  .tv.tv {
+  
+  .tv {
     background-image:/* webpackIgnore: true */ url('assets/tv2.png');
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
   }
   .icon3 {
     width: 100%;
@@ -35,7 +34,7 @@
     left: 0;
     top: 0;
     width: 1440px;
-    height: 600px;
+    height: 450px;
     background-color: #00000080;
     background-image:/* webpackIgnore: true */ url('assets/poster.jpeg');
     background-position: center;
@@ -51,6 +50,7 @@
   }
   .search2 {
     display: flex;
+    position: absolute;
     justify-content: space-between;
     align-items: center;
     border-radius: 6px;
@@ -83,39 +83,18 @@
   }
   .menu {
     position: absolute;
-    left: 1228px;
     top: 22px;
-    width: min-content;
-    height: min-content;
+    right: 0;
+    margin-right: 3vh;
+    display: flex;
     align-items: center;
     gap: 27px;
   }
-  .signIn {
-    color: #fff;
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: bold;
-    font-family: DM Sans, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
-      'Liberation Sans', sans-serif;
-    width: min-content;
-    height: min-content;
-    white-space: nowrap;
-    flex-direction: column;
-  }
+  
   .menu2 {
     position: relative;
     width: 36px;
     height: 36px;
-  }
-  .ellipse1 {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 36px;
-    height: 36px;
-    overflow: visible;
   }
   .icon4 {
     width: 100%;

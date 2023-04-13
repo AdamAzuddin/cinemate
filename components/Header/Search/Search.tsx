@@ -19,8 +19,9 @@ interface Props {
 /* @figmaId 1:2135 */
 export const Search: FC<Props> = memo(function Search(props = {}) {
   return (
-    <div>
+    <div >
       <Box
+      position="absolute"
         display="flex"
         alignItems="center"
         width={400}
@@ -29,6 +30,7 @@ export const Search: FC<Props> = memo(function Search(props = {}) {
         borderColor="white"
         borderRadius={6}
         px={2}
+        
       >
         <TextField
           variant="outlined"

@@ -1,8 +1,5 @@
 import { Search } from "./Search/Search";
 import { SearchIcon } from "./SearchIcon";
-import { Ellipse1Icon } from "./Ellipse1Icon";
-import { MenuAlt4 } from "./MenuAlt4/MenuAlt4";
-import { MenuAlt4Icon } from "./MenuAlt4Icon";
 import { Logo } from "./Logo/Logo";
 import { Play } from "./Play/Play";
 import { PlayIcon } from "./PlayIcon";
@@ -10,6 +7,8 @@ import { memo } from "react";
 import type { FC } from "react";
 import classes from "./Header.module.css";
 import resets from "../_resets.module.css";
+import { IoMdMenu } from "react-icons/io";
+
 interface Props {
   className?: string;
 }
@@ -28,16 +27,10 @@ export const Header: FC<Props> = memo(function Header(props = {}) {
         />
       </div>
       <div className={classes.menu}>
-        <div className={classes.signIn}>Sign in</div>
-        <div className={classes.menu2}>
-          <div className={classes.ellipse1}>
-            <Ellipse1Icon className={classes.icon4} />
-          </div>
-          <MenuAlt4
-            className={classes.menuAlt4}
-            swap={{
-              icon: <MenuAlt4Icon className={classes.icon2} />,
-            }}
+        <div className={`${classes.menu2} rounded-full bg-blue-500 flex items-center justify-center w-20 h-20`}>
+          <IoMdMenu
+            size={35}
+            className="text-white text-2xl md:text-3xl lg:text-4xl"
           />
         </div>
       </div>
