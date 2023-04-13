@@ -16,65 +16,62 @@ interface Props {
 export const Header: FC<Props> = memo(function Header(props = {}) {
   return (
     <>
-      <div className={classes.poster}></div>
-      <div className={classes.bG}></div>
-      <div className="flex justify-center items-center ">
-        <Search
-          swap={{
-            icon: <SearchIcon className={classes.icon} />,
-          }}
-        />
-        <div className="mt-7">
-          <div className="absolute top-22 right-0 mr-3vh flex items-center gap-27 ">
-            <div className="menu2 rounded-full bg-blue-500 flex items-center justify-center w-12 h-12">
-              <IoMdMenu
-                size={35}
-                className="text-white text-2xl md:text-3xl lg:text-4xl"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="absolute  left-0 mr-3vh ">
-          <Logo className={classes.logo} classes={{ tv: classes.tv }} />
-        </div>
-      </div>
-
-      <div className={classes.descriptionBox}>
-        <div className={classes.johnWick3Parabellum}>
-          John Wick 3 : Parabellum
-        </div>
-        <div className={classes.rating}>
-          <div className={classes.iMDB}>
-            <div className={classes.mV5BMTk3ODA4Mjc0NF5BMl5BcG5nXk}></div>
-            <div className={classes._86100}>86.0 / 100</div>
-          </div>
-          <div className={classes.rottenTomatoes}>
-            <div className={classes.pngItem_13810561}></div>
-            <div className={classes._97}>97%</div>
-          </div>
-        </div>
-        <div className={classes.johnWickIsOnTheRunAfterKilling}>
-          John Wick is on the run after killing a member of the international
-          assassins&#39; guild, and with a $14 million price tag on his head, he
-          is the target of hit men and women everywhere.
-        </div>
-        <button className={classes.button}>
-          <Play
+      <div
+        className="relative w-full flex flex-col"
+        style={{
+          backgroundImage: "url('assets/poster.jpeg')",
+          backgroundSize: "cover",
+          height: "calc(100vh - 70px)", // 70px is the height of navbar
+        }}
+      >
+        <div className="flex justify-center items-center ">
+          <Search
             swap={{
-              icon: <PlayIcon className={classes.icon3} />,
+              icon: <SearchIcon className={classes.icon} />,
             }}
           />
-          <div className={classes.watchTrailer}>Watch trailer</div>
-        </button>
+          <div className="mt-7">
+            <div className="absolute top-22 right-0 mr-3vw md:mr-3vh flex items-center gap-4 md:gap-27 ">
+              <div className="menu2 rounded-full bg-blue-500 flex items-center justify-center w-10 md:w-12 h-10 md:h-12">
+                <IoMdMenu
+                  size={35}
+                  className="text-white text-2xl md:text-3xl lg:text-4xl"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="absolute  left-0 mr-3vw md:mr-3vh ">
+            <Logo className={classes.logo} classes={{ tv: classes.tv }} />
+          </div>
+        </div>
+
+        <div className={classes.descriptionBox}>
+          <div className="text-white text-3xl lg:text-5xl font-bold leading-14 lg:leading-14 font-sans  h-min flex flex-col">
+            John Wick 3 : Parabellum
+          </div>
+          <div className=" text-white text-base leading-5 font-medium font-sans  w-11/12 md:w-302 h-min-content flex flex-col my-5">
+            John Wick is on the run after killing a member of the international
+            assassins&#39; guild, and with a $14 million price tag on his head,
+            he is the target of hit men and women everywhere.
+          </div>
+          <button className={classes.button}>
+            <Play
+              swap={{
+                icon: <PlayIcon className={classes.icon3} />,
+              }}
+            />
+            <div className={classes.watchTrailer}>Watch trailer</div>
+          </button>
+        </div>
+        <div className={classes.pagination}>
+          <div className={classes._1}>1</div>
+          <div className={classes._2}>2</div>
+          <div className={classes._3}>3</div>
+          <div className={classes._4}>4</div>
+          <div className={classes._5}>5</div>
+        </div>
+        <div className={classes.rectangle1}></div>
       </div>
-      <div className={classes.pagination}>
-        <div className={classes._1}>1</div>
-        <div className={classes._2}>2</div>
-        <div className={classes._3}>3</div>
-        <div className={classes._4}>4</div>
-        <div className={classes._5}>5</div>
-      </div>
-      <div className={classes.rectangle1}></div>
     </>
   );
 });
