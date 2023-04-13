@@ -21,7 +21,7 @@ export const Header: FC<Props> = memo(function Header(props = {}) {
         style={{
           backgroundImage: "url('assets/poster.jpeg')",
           backgroundSize: "cover",
-          height: "calc(100vh - 70px)", // 70px is the height of navbar
+          height: "60vh"
         }}
       >
         <div className="flex justify-center items-center ">
@@ -32,7 +32,7 @@ export const Header: FC<Props> = memo(function Header(props = {}) {
           />
           <div className="mt-7">
             <div className="absolute top-22 right-0 mr-3vw md:mr-3vh flex items-center gap-4 md:gap-27 ">
-              <div className="menu2 rounded-full bg-blue-500 flex items-center justify-center w-10 md:w-12 h-10 md:h-12">
+              <div className="menu2 rounded-full  flex items-center justify-center w-10 md:w-12 h-10 md:h-12">
                 <IoMdMenu
                   size={35}
                   className="text-white text-2xl md:text-3xl lg:text-4xl"
@@ -49,28 +49,20 @@ export const Header: FC<Props> = memo(function Header(props = {}) {
           <div className="text-white text-3xl lg:text-5xl font-bold leading-14 lg:leading-14 font-sans  h-min flex flex-col">
             John Wick 3 : Parabellum
           </div>
-          <div className=" text-white text-base leading-5 font-medium font-sans  w-11/12 md:w-302 h-min-content flex flex-col my-5">
-            John Wick is on the run after killing a member of the international
-            assassins&#39; guild, and with a $14 million price tag on his head,
-            he is the target of hit men and women everywhere.
-          </div>
+          
           <button className={classes.button}>
             <Play
               swap={{
                 icon: <PlayIcon className={classes.icon3} />,
               }}
             />
-            <div className={classes.watchTrailer}>Watch trailer</div>
+            <div className="text-white text-sm md:text-base font-bold whitespace-nowrap">
+  Watch trailer
+</div>
+
           </button>
         </div>
-        <div className={classes.pagination}>
-          <div className={classes._1}>1</div>
-          <div className={classes._2}>2</div>
-          <div className={classes._3}>3</div>
-          <div className={classes._4}>4</div>
-          <div className={classes._5}>5</div>
-        </div>
-        <div className={classes.rectangle1}></div>
+        
       </div>
     </>
   );
