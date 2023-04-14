@@ -7,7 +7,7 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
 import { IoMdMenu } from "react-icons/io";
-import OverlayMenu from "../OverlayMenu";
+import OverlayMenu from "./OverlayMenu";
 import Button from "@mui/material/Button";
 import { useRouter } from "next/navigation";
 import { FaBell } from "react-icons/fa";
@@ -66,4 +66,3 @@ const Header = () => {
 };
 
 export default Header;
-
