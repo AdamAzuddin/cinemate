@@ -24,10 +24,23 @@ export async function getServerSideProps(context: NextPageContext) {
   };
 }
 
-export default function Home() {
-  const data = useApi('/search/title?title=batman&country=us&show_type=movie&output_language=en')
-  console.log(data)
+function getRandomIMDbID() {
+  // Generate a random number between 1 and 10,000,000 (inclusive)
+  const randomID = Math.floor(Math.random() * 10000000) + 1;
+  
+  // Convert the number to a string and pad it with leading zeros
+  const imdbID = randomID.toString().padStart(7, '0');
+  
+  // Add the "tt" prefix to the string to form a valid IMDb ID
+  return "tt" + imdbID;
+}
 
+
+export default function Home() {
+  const randomIMDbID = getRandomIMDbID()
+  const bannerMovie = useApi(`/search/title?title=batman&country=us&show_type=movie&output_language=en&limit=1`)
+  console.log(bannerMovie)
+ 
 
   
   return (

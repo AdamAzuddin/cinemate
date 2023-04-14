@@ -11,7 +11,7 @@ import OverlayMenu from "../OverlayMenu";
 import Button from "@mui/material/Button";
 import { useRouter } from "next/navigation";
 import { FaBell } from "react-icons/fa";
-import Search  from "./Search/Search";
+import Search  from "./Search";
 
 
 const Header = () => {

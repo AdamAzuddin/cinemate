@@ -21,7 +21,7 @@ const useApi = (endpoint: any) => {
         }
 
         fetchData()
-    }, [endpoint])
+    }, [])
   return data;
 }
 
