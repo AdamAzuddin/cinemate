@@ -1,67 +1,67 @@
-import { SearchIcon } from "./SearchIcon";
-import { memo } from "react";
-import type { FC, ReactNode } from "react";
-import classes from "./Search.module.css";
-import resets from "../../_resets.module.css";
-import { TextField } from "@mui/material";
+import { useState } from "react";
+import TextField from "@mui/material/TextField";
+import { makeStyles } from "@mui/styles";
 import InputAdornment from "@mui/material/InputAdornment";
-import Box from "@mui/material/Box";
+import { FaSearch } from "react-icons/fa";
 
-interface Props {
-  className?: string;
-  classes?: {
-    root?: string;
-  };
-  swap?: {
-    icon?: ReactNode;
-  };
-}
+const useStyles = makeStyles({
+  root: {
+    "& label.Mui-focused": {
+      color: "white",
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "white",
+      },
+      "&:hover fieldset": {
+        borderColor: "white",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "white",
+      },
+    },
+  },
+});
 
-/* @figmaId 1:2135 */
-export const Search: FC<Props> = memo(function Search(props = {}) {
+const Search = () => {
+  const [value, setValue] = useState("");
+  const classes = useStyles();
+
+  const handleChange = (event: any) => {
+    setValue(event.target.value);
+  };
+
   return (
-    <div className="relative z-10 mt-5">
-      <div className="absolute top-0 left-0">
-        <Box
-          position="absolute"
-          display="flex"
-          alignItems="center"
-          width={400}
-          bgcolor="transparent"
-          border={1}
-          borderColor="white"
-          borderRadius={6}
-          px={2}
-          left="50%"
-          style={{ transform: "translateX(-50%)" }}
-        >
-          <TextField
-            variant="outlined"
-            placeholder="Search for a movie, drama or genre ..."
-            sx={{
-              "& .MuiOutlinedInput-notchedOutline": {
-                border: "none",
-              },
-              "& .MuiOutlinedInput-root": {
-                backgroundColor: "transparent",
-              },
-            }}
-            fullWidth
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <div className={classes.icon}>
-                    {props.swap?.icon || <SearchIcon className={classes.icon2} />}
-                  </div>
-                </InputAdornment>
-              ),
-              style: {
-                color: "#FFFFFF", 
-              },
-            }}
-          />
-        </Box>
-      </div>
+    <div className="flex justify-center items-center bg-gray-800 flex-1">
+      <TextField
+        label="Label"
+        variant="outlined"
+        value={value}
+        onChange={handleChange}
+        className={classes.root}
+        InputLabelProps={{
+          style: { color: "white" },
+        }}
+        sx={{
+          input: { color: "white" },
+          "& .MuiOutlinedInput-root": {
+            borderRadius: "6px",
+          },
+          "& .MuiOutlinedInput-notchedOutline": {
+            borderRadius: "6px",
+          },
+        }}
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <FaSearch color="white" className="hover:cursor-pointer" />
+            </InputAdornment>
+          ),
+          autoComplete: "off",
+        }}
+      />
     </div>
   );
-});
+};
+
+export default Search;

@@ -35,6 +35,9 @@ export default function Home() {
       <Layout>
         <main className="container mx-auto  py-20">
           <Banner/>
+          <section>
+            {/* Row*/}
+          </section>
         </main>
       </Layout>
     </>

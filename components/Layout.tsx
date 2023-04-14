@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import {Header} from './Header/Header';
+import Header from './Header/Header';
 import { useSession } from 'next-auth/react';
 
 type Props = {
