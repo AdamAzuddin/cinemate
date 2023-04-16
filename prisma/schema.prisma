@@ -21,30 +21,8 @@ model User {
   updatedAt DateTime @updatedAt
   favouriteIds String[] @db.ObjectId
   sessions Session[]
-  accounts Account[]
 }
 
-model Account {
-  id String @id @map("_id") @default(auto()) @db.ObjectId
-  userId String @db.ObjectId
-  type String
-  provider String
-  providerAccountId String
-  refresh_token String? @db.String
-  access_token String? @db.String
-  expires_At Int?
-  token_type String?
-  scope String?
-  id_token String @db.String
-  session_state String 
-  
-  expires DateTime
-
-  // set relationship between session and user model
-  user User @relation(fields: [userId], references: [id],onDelete: Cascade)
-
-  @@unique([provider, providerAccountId])
-}
 
 model Session {
   id String @id @map("_id") @default(auto()) @db.ObjectId
@@ -72,6 +50,8 @@ model Movie {
   thumbnailUrl String
   genre String
   duration String
+  releaseDate DateTime
+  productionCompany String
 }
 
 
