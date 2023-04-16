@@ -32,7 +32,7 @@ const Search = () => {
   };
 
   return (
-    <div className="flex justify-center items-center bg-gray-800 flex-1">
+    <div className="flex-1 my-3">
       <TextField
         label="Label"
         variant="outlined"
