@@ -3,6 +3,9 @@ import Credentials from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import prismadb from "../../../lib/prismadb";
 import bcrypt from "bcrypt";
+import { handleAuth } from '@auth0/nextjs-auth0';
+
+/* export default handleAuth(); */
 
 
 export const authOptions = {
