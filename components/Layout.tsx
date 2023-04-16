@@ -18,7 +18,7 @@ const Layout = ({ children, title = 'Default Title' }: Props) => {
 
   return (
     <>
-      <Header />
+      <Header showAuthButton={showAuthButton}/>
       <main>{children}</main>
     </>
   );
