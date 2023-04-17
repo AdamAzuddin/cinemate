@@ -1,15 +1,16 @@
 import React, { useState } from "react";
+import { useRouter } from 'next/router';
 import { BiMoviePlay } from "react-icons/bi";
 import { BiCameraMovie } from "react-icons/bi";
 import { AiOutlineHome } from "react-icons/ai";
 import { BsBookmarkPlus } from "react-icons/bs";
-import { GrAnnounce } from "react-icons/gr";
 import { FaShapes } from "react-icons/fa";
 import { ImExit } from "react-icons/im";
 import { HiUserCircle } from "react-icons/hi";
 import { IoMdMenu } from "react-icons/io";
 import { BsMegaphone } from "react-icons/bs";
 import Link from "next/link";
+import SidebarItems from "./SidebarItems";
 
 interface Props {
   isSidebarOpen: boolean;
@@ -17,56 +18,30 @@ interface Props {
 }
 
 const Sidebar: React.FC<Props> = ({ isSidebarOpen, setIsSideBarOpen }) => {
+
+  const router = useRouter()
+  const isProfile = router.pathname=='/my-profile'
+  const isHome = router.pathname=='/'
+  const isMovies = router.pathname=='/movies'
+  const isSeries = router.pathname=='/series'
+  const isMyList = router.pathname=='/my-list'
+  const isGenres = router.pathname=='/genre'
+  const isComingSoon = router.pathname=='/coming-soon'
   return (
-    <div className={`h-screen bg-blue-600 px-2 flex flex-col`}>
+    <div className={`h-screen px-2 flex flex-col`} style={{backgroundColor: "#1A1A1A"}}>
       <IoMdMenu size={32} color="white" onClick={setIsSideBarOpen} />
-      <div className="flex">
-        <Link href="/my-profile">
-          <HiUserCircle size={32} color="#898989" className="my-2" />
-          {isSidebarOpen && <span>Account</span>}
-        </Link>
-      </div>
-      <div className="flex">
-        <Link href="/">
-          <AiOutlineHome size={32} color="#898989" className="my-2" />
-          {isSidebarOpen && <span>Home</span>}
-        </Link>
-      </div>
-      <div className="flex">
-        <Link href="/movies">
-          <BiCameraMovie size={32} color="#898989" className="my-2" />
-          {isSidebarOpen && <span>Movies</span>}
-        </Link>
-      </div>
-      <div className="flex">
-        <Link href="/series">
-          <BiMoviePlay size={32} color="#898989" className="my-2" />
-          {isSidebarOpen && <span>Series</span>}
-        </Link>
-      </div>
-      <div className="flex">
-        <Link href="/my-list">
-          <BsBookmarkPlus size={32} color="#898989" className="my-2" />
-          {isSidebarOpen && <span>My List</span>}
-        </Link>
-      </div>
-      <div className="flex">
-        <Link href="/genre">
-          <FaShapes size={32} color="#898989" className="my-2" />
-          {isSidebarOpen && <span>Genres</span>}
-        </Link>
-      </div>
-      <div className="flex">
-        <Link href="/coming-soon">
-          <BsMegaphone size={32} color="#898989" className="my-2" />
-          {isSidebarOpen && <span>Coming soon</span>}
-        </Link>
-      </div>
+      <SidebarItems icon={<HiUserCircle/>} isActive={isProfile} isSidebarOpen={isSidebarOpen} name="Account" toPage="my-profile"/>
+      <SidebarItems icon={<AiOutlineHome/>} isActive={isHome} isSidebarOpen={isSidebarOpen} name="Home" toPage=""/>
+      <SidebarItems icon={<BiCameraMovie/>} isActive={isMovies} isSidebarOpen={isSidebarOpen} name="Movies" toPage="movies"/>
+      <SidebarItems icon={<BiMoviePlay/>} isActive={isSeries} isSidebarOpen={isSidebarOpen} name="Series" toPage="series"/>
+      <SidebarItems icon={<BsBookmarkPlus/>} isActive={isMyList} isSidebarOpen={isSidebarOpen} name="My list" toPage="my-list"/>
+      <SidebarItems icon={<FaShapes/>} isActive={isGenres} isSidebarOpen={isSidebarOpen} name="Genre" toPage="genre"/>
+      <SidebarItems icon={<BsMegaphone/>} isActive={isComingSoon} isSidebarOpen={isSidebarOpen} name="Coming Soon" toPage="coming-soon"/>
       <div className="mt-auto">
         <div className="flex bottom-0 absolute">
           <div className="flex-grow"></div>
           <div>
-            <ImExit size={32} />
+            <ImExit size={32} color="#898989"/>
           </div>
         </div>
       </div>
