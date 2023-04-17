@@ -17,12 +17,35 @@ export default function Home() {
   return (
     <>
       <Layout>
-        <main>
           {status === "authenticated" ? <User session={data} /> : <Guest />}
-          <Button onClick={handleSignOut} variant="contained">
-            Sign out
-          </Button>
-        </main>
+          <div>jdhidwwh</div>
+          <div>jdhidwwh</div>
+          <div>jdhidwwh</div>
+          <div>jdhidwwh</div>
+
+          <div>jdhidwwh</div>
+          <div>jdhidwwh</div>
+          <div>jdhidwwh</div>
+
+          <div>jdhidwwh</div>
+
+          <div>jdhidwwh</div>
+          <div>jdhidwwh</div>
+          <div>jdhidwwh</div>
+          <div>jdhidwwh</div>
+          <div>jdhidwwh</div>
+          <div>jdhidwwh</div>
+          <div>jdhidwwh</div>
+          <div>jdhidwwh</div>
+          <div>jdhidwwh</div>
+          <div>jdhidwwh</div>
+          <div>jdhidwwh</div>
+          <div>jdhidwwh</div>
+          <div>jdhidwwh</div>
+          <div>jdhidwwh</div>
+          <div>jdhidwwh</div>
+          <div>jdhidwwh</div>
+          <div>jdhidwwh</div>
       </Layout>
     </>
   );
@@ -58,14 +81,16 @@ function User({ session }: UserProps) {
         <h5>{session?.user?.name}</h5>
         <h5>{session?.user?.email}</h5>
       </div>
-      <div className="justify-center flex bg-blue-500">
+      <div className="justify-center flex">
         <Link href="/profile" legacyBehavior>
           <a className="text-white">Profile Page</a>
         </Link>
       </div>
-      <Button onClick={handleSignOut} variant="contained">
-        Sign out
-      </Button>
+      <div className="justify-center flex">
+        <Button onClick={handleSignOut} variant="contained">
+          Sign out
+        </Button>
+      </div>
     </main>
   );
 }

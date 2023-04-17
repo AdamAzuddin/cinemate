@@ -16,7 +16,7 @@ type HeaderProps = {
 };
 
 const Header = ({ showAuthButton }: HeaderProps) => {
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(true);
   // set an empty div element
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -24,7 +24,7 @@ const Header = ({ showAuthButton }: HeaderProps) => {
 
   return (
     <header className="w-full flex">
-      <div className=" flex flex-1 items-center ml-3">
+      <div className=" flex flex-1 items-center ">
         <div className="text-white">Cinemate</div>
       </div>
       <Search />

@@ -27,20 +27,14 @@ const Layout = ({ children, title = "Default Title" }: Props) => {
 
   return (
     <>
-      <input
-        type="checkbox"
-        id="check"
-        checked={isSidebarOpen}
-        onChange={handleToggleSidebar}
-      />
       <div className="flex">
-        <div className="bg-blue">
-          <Sidebar isSidebarOpen={isSidebarOpen} />
+        <div className="bg-blue fixed top-0 bottom-0 left-0">
+          <Sidebar isSidebarOpen={isSidebarOpen} setIsSideBarOpen={handleToggleSidebar} />
         </div>
 
-        <div className="flex flex-col w-full ">
+        <div className="flex flex-col w-full overflow-y-auto" style={{ marginLeft: isSidebarOpen ? '250px' : '60px' }}>
           <Header showAuthButton={showAuthButton} />
-          <main className="">{children}</main>
+          <main >{children}</main>
         </div>
       </div>
     </>

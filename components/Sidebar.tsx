@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BiMoviePlay } from "react-icons/bi";
 import { BiCameraMovie } from "react-icons/bi";
 import { AiOutlineHome } from "react-icons/ai";
@@ -7,14 +7,22 @@ import { GrAnnounce } from "react-icons/gr";
 import { FaShapes } from "react-icons/fa";
 import { ImExit } from "react-icons/im";
 import { HiUserCircle } from "react-icons/hi";
+import { IoMdMenu } from "react-icons/io";
 
 interface Props {
   isSidebarOpen: boolean;
+  setIsSideBarOpen: Function;
 }
 
-const Sidebar: React.FC<Props> = ({ isSidebarOpen }) => {
+const Sidebar: React.FC<Props> = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  function handleToggleSidebar() {
+    setIsSidebarOpen(!isSidebarOpen);
+  }
   return (
     <div className={`h-screen bg-blue-600 px-2 flex flex-col`}>
+      <IoMdMenu size={32} color="white" onClick={handleToggleSidebar}/>
       <div className="flex">
           <HiUserCircle size={32}/>
           {isSidebarOpen && <span>John doe</span>}
@@ -48,7 +56,6 @@ const Sidebar: React.FC<Props> = ({ isSidebarOpen }) => {
       <div className="flex-grow"></div>
       <div>
         <ImExit size={32} />
-        {isSidebarOpen && <span>John doe</span>}
       </div>
     </div>
   </div>
