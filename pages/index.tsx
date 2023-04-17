@@ -1,11 +1,8 @@
-import Header from "@/components/Header";
 import Link from "next/link";
 import type { Session } from "next-auth";
 import Layout from "@/components/Layout";
 import { signOut, useSession } from "next-auth/react";
 import { Button } from "@mui/material";
-import { NextPageContext } from "next";
-import useCurrentUser from "@/hooks/useCurrentUser";
 
 export default function Home() {
   const { data, status } = useSession();
@@ -18,34 +15,6 @@ export default function Home() {
     <>
       <Layout>
           {status === "authenticated" ? <User session={data} /> : <Guest />}
-          <div>jdhidwwh</div>
-          <div>jdhidwwh</div>
-          <div>jdhidwwh</div>
-          <div>jdhidwwh</div>
-
-          <div>jdhidwwh</div>
-          <div>jdhidwwh</div>
-          <div>jdhidwwh</div>
-
-          <div>jdhidwwh</div>
-
-          <div>jdhidwwh</div>
-          <div>jdhidwwh</div>
-          <div>jdhidwwh</div>
-          <div>jdhidwwh</div>
-          <div>jdhidwwh</div>
-          <div>jdhidwwh</div>
-          <div>jdhidwwh</div>
-          <div>jdhidwwh</div>
-          <div>jdhidwwh</div>
-          <div>jdhidwwh</div>
-          <div>jdhidwwh</div>
-          <div>jdhidwwh</div>
-          <div>jdhidwwh</div>
-          <div>jdhidwwh</div>
-          <div>jdhidwwh</div>
-          <div>jdhidwwh</div>
-          <div>jdhidwwh</div>
       </Layout>
     </>
   );
