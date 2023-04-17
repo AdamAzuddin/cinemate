@@ -34,18 +34,13 @@ const Layout = ({ children, title = "Default Title" }: Props) => {
         onChange={handleToggleSidebar}
       />
       <div className="flex">
-        <div className={`h-screen bg-blue-600 px-5`}
-        style={{width: isSidebarOpen ? "100px" : "20px" }}>
+        <div className="bg-blue">
           <Sidebar isSidebarOpen={isSidebarOpen} />
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col w-full ">
           <Header showAuthButton={showAuthButton} />
-          <main
-            className="w-screen"
-          >
-            {children}
-          </main>
+          <main className="">{children}</main>
         </div>
       </div>
     </>

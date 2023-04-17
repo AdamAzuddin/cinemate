@@ -14,40 +14,45 @@ interface Props {
 
 const Sidebar: React.FC<Props> = ({ isSidebarOpen }) => {
   return (
-    <>
-      <a href="#">
-        <HiUserCircle />
+    <div className={`h-screen bg-blue-600 px-2 flex flex-col`}>
+      <div className="flex">
+          <HiUserCircle size={32}/>
+          {isSidebarOpen && <span>John doe</span>}
+      </div>
+      <div className="flex">
+          <AiOutlineHome size={32}/>
+          {isSidebarOpen && <span>John doe</span>}
+      </div>
+      <div className="flex">
+          <BiCameraMovie size={32}/>
+          {isSidebarOpen && <span>John doe</span>}
+      </div>
+      <div className="flex">
+          <BiMoviePlay  size={32}/>
+          {isSidebarOpen && <span>John doe</span>}
+      </div>
+      <div className="flex">
+          <BsBookmarkPlus  size={32}/>
+          {isSidebarOpen && <span>John doe</span>}
+      </div>
+      <div className="flex">
+          <FaShapes size={32}/>
+          {isSidebarOpen && <span>John doe</span>}
+      </div>
+      <div className="flex">
+          <GrAnnounce size={32}/>
+          {isSidebarOpen && <span>John doe</span>}
+      </div>
+      <div className="mt-auto">
+    <div className="flex bottom-0 absolute">
+      <div className="flex-grow"></div>
+      <div>
+        <ImExit size={32} />
         {isSidebarOpen && <span>John doe</span>}
-      </a>
-      <a href="#">
-        <AiOutlineHome />
-        {isSidebarOpen && <span>Dashboard</span>}
-      </a>
-      <a href="#">
-        <BiCameraMovie />
-        {isSidebarOpen && <span>Dashboard</span>}
-      </a>
-      <a href="#">
-        <BiMoviePlay />
-        {isSidebarOpen && <span>Dashboard</span>}
-      </a>
-      <a href="#">
-        <BsBookmarkPlus />
-        {isSidebarOpen && <span>Dashboard</span>}
-      </a>
-      <a href="#">
-        <FaShapes />
-        {isSidebarOpen && <span>Dashboard</span>}
-      </a>
-      <a href="#">
-        <GrAnnounce />
-        {isSidebarOpen && <span>Dashboard</span>}
-      </a>
-      <a href="#">
-        <ImExit />
-        {isSidebarOpen && <span>Dashboard</span>}
-      </a>
-    </>
+      </div>
+    </div>
+  </div>
+    </div>
   );
 };
 
