@@ -27,9 +27,6 @@ const Header = ({ showAuthButton }: HeaderProps) => {
       <div className=" flex flex-1 items-center ml-3">
         <div className="text-white">Cinemate</div>
       </div>
-      <div className=" flex flex-1 items-center">
-        <IoMdMenu color="white" size={32} />
-      </div>
       <Search />
       <div className="flex flex-1 items-center">
         {showAuthButton && (
