@@ -32,7 +32,7 @@ const Layout = ({ children, title = "Default Title" }: Props) => {
           <Sidebar isSidebarOpen={isSidebarOpen} setIsSideBarOpen={handleToggleSidebar} />
         </div>
 
-        <div className="flex flex-col w-full overflow-y-auto" style={{ marginLeft: isSidebarOpen ? '250px' : '60px' }}>
+        <div className="flex flex-col w-full overflow-y-auto" style={{ marginLeft: isSidebarOpen ? '150px' : '60px' }}>
           <Header showAuthButton={showAuthButton} />
           <main >{children}</main>
         </div>

@@ -11,18 +11,13 @@ import { IoMdMenu } from "react-icons/io";
 
 interface Props {
   isSidebarOpen: boolean;
-  setIsSideBarOpen: Function;
+  setIsSideBarOpen: ()=> void;
 }
 
-const Sidebar: React.FC<Props> = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  function handleToggleSidebar() {
-    setIsSidebarOpen(!isSidebarOpen);
-  }
+const Sidebar: React.FC<Props> = ({isSidebarOpen, setIsSideBarOpen}) => {
   return (
     <div className={`h-screen bg-blue-600 px-2 flex flex-col`}>
-      <IoMdMenu size={32} color="white" onClick={handleToggleSidebar}/>
+      <IoMdMenu size={32} color="white" onClick={setIsSideBarOpen}/>
       <div className="flex">
           <HiUserCircle size={32}/>
           {isSidebarOpen && <span>John doe</span>}
